@@ -32,7 +32,7 @@ Or ask AI with the Chat button in the bottom right...
 Using your favorite package manager...
 
 ```shell
-npm install github:smashedr/ai-chat-server
+npm install github:smashedr/vitepress-chat
 ```
 
 ## Configure
