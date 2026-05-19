@@ -8,6 +8,7 @@ on:
       - ".github/workflows/preview.yaml"
       - ".vitepress/**"
       - "docs/**"
+      - "src/**"
       - "package*.json"
 
 concurrency:
