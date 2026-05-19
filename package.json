@@ -1,7 +1,7 @@
 {
   "name": "@cssnr/vitepress-chat",
   "version": "0.0.1",
-  "description": "Easily add AI chat with knowledge on your site and live streaming results from a thin proxy server.",
+  "description": "Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server.",
   "keywords": [
     "vitepress-plugin",
     "vitepress",

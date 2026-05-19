@@ -84,4 +84,4 @@ Run the server.
 npm run dev
 ```
 
-Point your client to: http://localhost:3000/
+Point your client to: <http://localhost:3000/>
