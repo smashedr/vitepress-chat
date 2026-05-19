@@ -45,7 +45,7 @@ const instructions = ref(system)
 onMounted(async () => {
   console.log('%c ON MOUNTED', 'color: SpringGreen')
   try {
-    const res = await fetch('/instructions.txt')
+    const res = await fetch(`${base}instructions.txt`)
     if (res.ok) {
       const text = await res.text()
       instructions.value = `${system}\n\n${text}`
