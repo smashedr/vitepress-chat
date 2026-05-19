@@ -7,3 +7,5 @@ build/
 node_modules/
 contributors.json
 *.tgz
+.env
+.env.development

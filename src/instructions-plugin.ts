@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import type { Plugin, ResolvedConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -53,7 +55,7 @@ export function vitePressInstructions(options: InstructionsOptions = {}): Plugin
       server.middlewares.use((req, res, next) => {
         if (!req.url) return next()
         const url = req.url.split('?')[0]
-        if (url === '/' + outputFilename) {
+        if (url === '/' + outputFilename || url === config.base + outputFilename) {
           compile()
           res.setHeader('Content-Type', 'text/plain; charset=utf-8')
           res.end(compiled)

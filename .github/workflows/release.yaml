@@ -4,6 +4,8 @@ on:
   release:
     types: [published]
 
+# TODO: Enable Publish
+
 jobs:
   release:
     name: "Release"
@@ -14,9 +16,9 @@ jobs:
       contents: write
       id-token: write
 
-    environment:
-      name: npm
-      url: https://www.npmjs.com/package/@cssnr/vitepress-chat
+    #environment:
+    #  name: npm
+    #  url: https://www.npmjs.com/package/@cssnr/vitepress-chat
 
     steps:
       - name: "Checkout"
@@ -55,9 +57,9 @@ jobs:
       - name: "Install"
         run: npm ci
 
-      - name: "Publish"
-        if: ${{ !github.event.release.prerelease }}
-        run: npm publish --provenance --access public
+      #- name: "Publish"
+      #  if: ${{ !github.event.release.prerelease }}
+      #  run: npm publish --provenance --access public
 
       - name: "List Artifacts"
         continue-on-error: true

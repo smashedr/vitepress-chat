@@ -51,8 +51,6 @@ services:
 
 For a Docker Swarm and Traefik example with Basic Auth see the [docker-compose-swarm.yaml](https://github.com/smashedr/ai-chat-server/blob/master/docker-compose-swarm.yaml).
 
-_Note: The `cssnr/docker-nginx-proxy` is not actually needed with Traefik, only used as an example._
-
 For a Portainer Deploy workflow see the [.github/workflows/deploy.yaml](https://github.com/smashedr/ai-chat-server/blob/master/.github/workflows/deploy.yaml).
 
 ## Setup
