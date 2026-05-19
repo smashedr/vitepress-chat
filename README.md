@@ -31,6 +31,8 @@ Made with the [AI SDK](https://ai-sdk.dev/).
 npm install github:smashedr/ai-chat-server
 ```
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/smashedr/vitepress-chat/)
+
 ## Setup
 
 First add the Chat to your DefaultTheme with api server and optional headers.
@@ -68,6 +70,8 @@ export default defineConfig({
   },
 })
 ```
+
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/smashedr/vitepress-chat/)
 
 ### Server
 
