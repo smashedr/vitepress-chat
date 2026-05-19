@@ -1,0 +1,82 @@
+{
+  "name": "@cssnr/vitepress-chat",
+  "version": "0.0.1",
+  "description": "Easily add AI chat with knowledge on your site and live streaming results from a thin proxy server.",
+  "keywords": [
+    "vitepress-plugin",
+    "vitepress",
+    "plugin",
+    "chat",
+    "ai"
+  ],
+  "homepage": "https://github.com/smashedr/vitepress-chat",
+  "bugs": {
+    "url": "https://github.com/smashedr/vitepress-chat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smashedr/vitepress-chat.git"
+  },
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/cssnr"
+  },
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "Shane",
+    "url": "https://cssnr.github.io/"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/vitepress-chat.es.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./instructions-plugin": {
+      "import": "./dist/instructions-plugin.es.js",
+      "types": "./dist/instructions-plugin.d.ts"
+    },
+    "./style.css": "./dist/vitepress-chat.css"
+  },
+  "main": "dist/vitepress-chat.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "docs": "npm run docs:dev",
+    "docs:build": "vitepress build docs",
+    "docs:deploy": "npm run docs:build",
+    "docs:dev": "vitepress dev docs",
+    "docs:preview": "vitepress preview docs",
+    "prepare": "npm run build",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@ai-sdk/vue": "^3.0.184",
+    "@types/node": "^25.8.0",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "ai": "^6.0.184",
+    "highlight.js": "^11.11.1",
+    "marked": "^18.0.3",
+    "marked-highlight": "^2.2.4",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.13",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.34",
+    "vue-tsc": "^3.2.9"
+  },
+  "peerDependencies": {
+    "@ai-sdk/vue": ">=3.0.0",
+    "ai": ">=6.0.0",
+    "highlight.js": ">=11.0.0",
+    "marked": ">=18.0.0",
+    "marked-highlight": ">=2.0.0",
+    "vitepress": ">=1.0.0",
+    "vue": ">=3.0.0"
+  }
+}

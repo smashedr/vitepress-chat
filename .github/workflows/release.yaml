@@ -1,0 +1,111 @@
+name: "Release"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: "Release"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: write
+      id-token: write
+
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/@cssnr/vitepress-chat
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v6
+
+      - name: "Debug event.json"
+        if: ${{ !github.event.act }}
+        continue-on-error: true
+        run: cat "${GITHUB_EVENT_PATH}"
+      - name: "Debug CTX github"
+        if: ${{ !github.event.act }}
+        continue-on-error: true
+        env:
+          GITHUB_CTX: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CTX"
+      - name: "Debug Environment"
+        if: ${{ !github.event.act }}
+        continue-on-error: true
+        run: env
+
+      - name: "Update Package Version"
+        uses: cssnr/update-json-value-action@v2
+        with:
+          file: "package.json"
+
+      - name: "Debug Package File"
+        continue-on-error: true
+        run: cat package.json
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+
+      - name: "Install"
+        run: npm ci
+
+      - name: "Publish"
+        if: ${{ !github.event.release.prerelease }}
+        run: npm publish --provenance --access public
+
+      - name: "List Artifacts"
+        continue-on-error: true
+        working-directory: dist
+        run: |
+          results="$(tree .)"
+          echo "::group::results"
+          echo "${results}"
+          echo "::endgroup::"
+          md="Artifacts:\n\`\`\`text\n${results}\n\`\`\`"
+          echo -e "${md}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: "Upload to Actions"
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: dist
+          path: dist
+
+      - name: "Archive Distribution"
+        continue-on-error: true
+        run: |
+          zip -r dist.zip dist package.json README.md LICENSE
+
+      - name: "Upload Release"
+        id: release
+        if: ${{ github.event_name == 'release' }}
+        uses: cssnr/upload-release-action@v1
+        continue-on-error: true
+        with:
+          files: |
+            dist.zip
+          names: |
+            dist.zip
+
+      - name: "Update Release Notes Action"
+        uses: smashedr/update-release-notes-action@master
+        continue-on-error: true
+        with:
+          location: tail
+
+      - name: "Package Changelog Action"
+        continue-on-error: true
+        uses: cssnr/package-changelog-action@v2
+
+      - name: "Send Failure Notification"
+        if: ${{ failure() }}
+        uses: sarisia/actions-status-discord@eb045afee445dc055c18d3d90bd0f244fd062708 # v1.16.0
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          description: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

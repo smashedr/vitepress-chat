@@ -1,0 +1,9 @@
+.idea/
+*.iml
+.vscode/
+cache/
+dist/
+build/
+node_modules/
+contributors.json
+*.tgz
