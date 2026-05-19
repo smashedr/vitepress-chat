@@ -51,7 +51,7 @@ import '@cssnr/vitepress-chat/style.css'
 export default {
   ...DefaultTheme,
   ...VitePressChat(DefaultTheme, {
-    api: 'https://ai-chat.cssnr.com/',
+    api: 'https://ai-chat-server.cssnr.com/',
     headers: { Authorization: 'Basic Abc123=' },
   }),
 }
