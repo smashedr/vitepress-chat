@@ -24,8 +24,6 @@ Made with the [AI SDK](https://ai-sdk.dev/).
 - [Support](#Support)
 - [Contributing](#Contributing)
 
-## Setup
-
 ## Install
 
 ```shell
