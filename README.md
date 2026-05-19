@@ -19,6 +19,7 @@ AI Chat trained on your docs with live-streaming results from any provider you c
 
 Made with the [AI SDK](https://ai-sdk.dev/).
 
+- [Install](#Install)
 - [Setup](#Setup)
   - [Server](#Server)
 - [Support](#Support)
