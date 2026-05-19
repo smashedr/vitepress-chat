@@ -11,12 +11,12 @@ const settings = {
   name: 'VitePress AI Chat Plugin',
   description: {
     short:
-      'Easily add AI chat with knowledge on your site and live streaming results from a thin proxy server.',
-    long: 'Easily add AI chat with knowledge on your site and live streaming results from a thin proxy server.',
+      'Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server.',
+    long: 'Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server.',
   },
   base: '/vitepress-chat/', // set to empty string for no base path
   og_image: '/vitepress-chat/images/logo.png', // must be full path
-  color: '#d9925f',
+  color: '#22c55e',
   source_repo: 'https://github.com/smashedr/vitepress-chat',
 }
 

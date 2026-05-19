@@ -5,7 +5,7 @@ layout: home
 hero:
   name: VitePress Chat
   text: AI Chat Client
-  tagline: Easily add AI chat with knowledge on your site and live streaming results from a thin proxy server.
+  tagline: Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server.
   image:
     src: /images/logo.svg
     alt: VitePress Chat
