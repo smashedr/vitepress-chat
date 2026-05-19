@@ -15,15 +15,17 @@
 <a title="VitePress Chat Plugin" href="https://smashedr.github.io/vitepress-chat/" target="_blank">
 <img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/docs/public/images/logo.svg"></a>
 
-AI Chat trained on your docs with live-streaming results from any provider you choose via a secure [ai-chat-server](https://github.com/smashedr/ai-chat-server).
-
-Made with the [AI SDK](https://ai-sdk.dev/).
-
 - [Install](#Install)
 - [Setup](#Setup)
   - [Server](#Server)
 - [Support](#Support)
 - [Contributing](#Contributing)
+
+AI Chat trained on your docs with live-streaming results from any provider you choose via a secure [ai-chat-server](https://github.com/smashedr/ai-chat-server).
+
+For a live demo see docs: <https://smashedr.github.io/vitepress-chat/>
+
+Made with the [AI SDK](https://ai-sdk.dev/).
 
 ## Install
 
@@ -63,6 +65,7 @@ Then add the instruction generator vite plugin to your config.
 
 ```typescript
 import { defineConfig } from 'vitepress'
+
 import vitePressInstructions from '@cssnr/vitepress-chat/instructions-plugin'
 
 // https://vitepress.dev/reference/site-config
@@ -73,11 +76,17 @@ export default defineConfig({
 })
 ```
 
+Now the `instructiosn.txt` will be auto-generated on dev and build from your docs
+and the Chat button will appear in the bottom right on all pages.
+
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
 
 ### Server
 
-For server setup see: https://github.com/smashedr/ai-chat-server
+For server set instructions see:
+
+- Documentation: <https://smashedr.github.io/vitepress-chat/server>
+- GitHub Repository: <https://github.com/smashedr/ai-chat-server>
 
 ## Support
 

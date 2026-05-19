@@ -1,4 +1,4 @@
-# Server
+# AI Chat Server
 
 [![GitHub Release Version](https://img.shields.io/github/v/release/smashedr/ai-chat-server?logo=github)](https://github.com/smashedr/ai-chat-server/releases/latest)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/smashedr/ai-chat-server/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/smashedr/ai-chat-server/actions/workflows/build.yaml)
@@ -16,8 +16,6 @@
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
-# AI Chat Server
-
 <a title="AI Chat Server" href="https://github.com/smashedr/ai-chat-server?tab=readme-ov-file#readme" target="_blank">
 <img alt="AI Chat Server" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/ai-chat-server/refs/heads/master/.github/assets/logo.svg"></a>
 
@@ -25,12 +23,37 @@
 
 AI Chat Server using the [AI SDK](https://ai-sdk.dev/).
 
+<https://github.com/smashedr/ai-chat-server>
+
+## Running
+
+Using Docker Run.
+
 ```shell
 docker run --rm -p 80:3000 --name ai-chat-server \
-    -e MODEL=gpt-4.1-nano \
-    -e OPENAI_API_KEY=sk-proj-xxxx \
+    -e MODEL=gemini-2.5-flash \
+    -e GOOGLE_GENERATIVE_AI_API_KEY=xxx \
     ghcr.io/smashedr/ai-chat-server:latest
 ```
+
+With Docker Compose.
+
+```yaml
+services:
+  chat:
+    image: ghcr.io/smashedr/ai-chat-server:latest
+    environment:
+      MODEL: 'gpt-5.4-mini'
+      OPENAI_API_KEY: 'sk-proj-xxx'
+    ports:
+      - '80:3000'
+```
+
+For a Docker Swarm and Traefik example with Basic Auth see the [docker-compose-swarm.yaml](https://github.com/smashedr/ai-chat-server/blob/master/docker-compose-swarm.yaml).
+
+_Note: The `cssnr/docker-nginx-proxy` is not actually needed with Traefik, only used as an example._
+
+For a Portainer Deploy workflow see the [.github/workflows/deploy.yaml](https://github.com/smashedr/ai-chat-server/blob/master/.github/workflows/deploy.yaml).
 
 ## Setup
 
@@ -65,16 +88,12 @@ const chat = new Chat({
 })
 ```
 
-## VitePress Plugin
-
-See the [client](client.md) docs for the VitePress plugin.
-
 ## Development
 
 Set a model and api key variable.
 
 ```shell
-$env:MODEL = "gpt-5.4-mini"
+$env:MODEL = "gpt-4.1-nano"
 $env:OPENAI_API_KEY = "sk-proj-xxx"
 ```
 
@@ -84,4 +103,10 @@ Run the server.
 npm run dev
 ```
 
-Point your client to: <http://localhost:3000/>
+Point your client to: http://localhost:3000/
+
+To test the docker image run.
+
+```shell
+bash build.sh
+```
