@@ -8,8 +8,11 @@ import VitePressChat from '../../../src/index'
 export default {
   ...DefaultTheme,
   ...VitePressChat(DefaultTheme, {
-    api: 'https://ai-chat.cssnr.com/',
-    headers: { Authorization: 'Basic Y3NzbnI6cGFzc3dvcmQ=' },
+    api: import.meta.env.VITE_AI_API,
+    // headers: { Authorization: import.meta.env.VITE_AI_AUTH },
+    headers: import.meta.env.VITE_AI_AUTH
+      ? { Authorization: import.meta.env.VITE_AI_AUTH }
+      : undefined,
   }),
 
   enhanceApp({ app }) {

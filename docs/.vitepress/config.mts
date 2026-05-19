@@ -26,6 +26,7 @@ export default defineConfig({
   // srcDir: './docs',
   base: settings.base,
   vite: {
+    envDir: '..',
     // resolve: {
     //   alias: {
     //     '@src': path.resolve(__dirname, '../../src'),
@@ -133,7 +134,7 @@ export default defineConfig({
         // collapsed: false,
         items: [
           { text: 'Setup', link: '/setup' },
-          { text: 'Client', link: '/client' },
+          // { text: 'Client', link: '/client' },
           { text: 'Server', link: '/server' },
         ],
       },

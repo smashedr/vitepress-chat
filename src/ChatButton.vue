@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { ref, watch, nextTick, useTemplateRef, onMounted } from 'vue'
-import { Chat } from '@ai-sdk/vue'
 import { DefaultChatTransport } from 'ai'
-import VPChatBox from './VPChatBox.vue'
+import { Chat } from '@ai-sdk/vue'
 import type { ChatOptions } from './index'
-
+import VPChatBox from './VPChatBox.vue'
 import { marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github-dark.css'
+
+const props = defineProps<ChatOptions>()
+
+if (!props.api) throw new Error('ChatButton - missing required prop: api')
 
 marked.use(
   markedHighlight({
@@ -19,12 +22,6 @@ marked.use(
     },
   }),
 )
-
-const renderMarkdown = (text: string) => marked.parse(text ?? '')
-
-const props = defineProps<ChatOptions>()
-
-if (!props.api) throw new Error('ChatButton: "api" prop is required')
 
 const isOpen = ref(false)
 const input = ref('')
@@ -42,18 +39,24 @@ VitePress Documentation Files:
 
 const instructions = ref(system)
 
+const renderMarkdown = (text: string) => marked.parse(text ?? '')
+
 onMounted(async () => {
-  console.log('%c ON MOUNTED', 'color: SpringGreen')
+  // console.log('%c ON MOUNTED', 'color: SpringGreen')
+  console.log('baseUrl:', base)
   try {
     const res = await fetch(`${base}instructions.txt`)
+    console.log('res.status:', res.status)
     if (res.ok) {
       const text = await res.text()
       instructions.value = `${system}\n\n${text}`
-      console.log('instructions.value:', instructions.value)
+      console.log('instructions:', instructions.value)
     } else {
-      console.error('Error fetching instructions:', res)
+      console.error('fetching instructions:', res)
     }
-  } catch {}
+  } catch (e) {
+    console.error('fetching instructions:', e)
+  }
 })
 
 const chat = new Chat({
@@ -72,15 +75,10 @@ const chat = new Chat({
 watch(isOpen, (val) => {
   console.log('watch: %c isOpen', 'color: SpringGreen', val)
   if (val) {
-    console.log('watch: %c focusInput & scrollToBottom', 'color: Tomato')
     focusInput()
     nextTick(() => scrollToBottom())
   }
 })
-
-// function renderMarkdownLinks(text: string) {
-//   return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-// }
 
 function onBubbleClick(e: MouseEvent) {
   const target = e.target as HTMLElement
@@ -90,15 +88,13 @@ function onBubbleClick(e: MouseEvent) {
 }
 
 function focusInput() {
+  console.log('focusInput:', !!inputEl.value)
   nextTick(() => inputEl.value?.focus())
 }
 
 function scrollToBottom() {
-  console.log('scrollToBottom:', messagesEl.value)
-  if (messagesEl.value) {
-    console.log('scrollToBottom: %c messagesEl.value', 'color: SpringGreen')
-    messagesEl.value.scrollTop = messagesEl.value.scrollHeight
-  }
+  console.log('scrollToBottom:', !!messagesEl.value)
+  if (messagesEl.value) messagesEl.value.scrollTop = messagesEl.value.scrollHeight
 }
 
 function handleSubmit(e: Event) {
@@ -106,39 +102,8 @@ function handleSubmit(e: Event) {
   if (!input.value.trim()) return
   chat.sendMessage({ text: input.value })
   input.value = ''
-  // nextTick: wait for Vue to re-render the cleared input before focusing
   focusInput()
 }
-
-// onMounted(() => {
-//   console.log('%c ON MOUNTED', 'color: SpringGreen')
-// })
-
-// Focus when chat finishes responding — the input is disabled while streaming
-// so any earlier focus attempt silently fails on a disabled element
-// watch(
-//   () => chat.status,
-//   (status) => {
-//     if (status === 'ready') {
-//       focusInput()
-//       scrollToBottom()
-//     }
-//   },
-// )
-
-// MutationObserver: fires on ANY DOM change in the messages container,
-// including streaming text appended character-by-character. A Vue watch
-// with deep:true only tracks reactive ref changes, not live text node updates.
-// let observer: MutationObserver | null = null
-
-// watch(messagesEl, (el) => {
-//   observer?.disconnect()
-//   if (!el) return
-//   observer = new MutationObserver(scrollToBottom)
-//   observer.observe(el, { childList: true, subtree: true, characterData: true })
-// })
-
-// onBeforeUnmount(() => observer?.disconnect())
 </script>
 
 <template>

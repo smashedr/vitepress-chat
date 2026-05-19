@@ -47,6 +47,7 @@
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "docs": "npm run docs:dev",
     "docs:build": "vitepress build docs",
+    "docs:clean": "rm -rf docs/.vitepress/cache",
     "docs:deploy": "npm run docs:build",
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
@@ -57,18 +58,18 @@
   "dependencies": {},
   "devDependencies": {
     "@ai-sdk/vue": "^3.0.185",
-    "@types/node": "^25.9.0",
+    "@types/node": "^25.9.1",
     "@vitejs/plugin-vue": "^6.0.7",
     "ai": "^6.0.185",
     "highlight.js": "^11.11.1",
-    "marked": "^18.0.3",
+    "marked": "^18.0.4",
     "marked-highlight": "^2.2.4",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3",
     "vite": "^8.0.13",
     "vitepress": "^1.6.4",
     "vue": "^3.5.34",
-    "vue-tsc": "^3.3.0"
+    "vue-tsc": "^3.3.1"
   },
   "peerDependencies": {
     "@ai-sdk/vue": ">=3.0.0",

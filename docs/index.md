@@ -13,9 +13,9 @@ hero:
     - text: Get Started
       link: /setup
       theme: brand
-    - text: Client
-      link: /client
-      theme: alt
+    #- text: Client
+    #  link: /client
+    #  theme: alt
     - text: Server
       link: /server
       theme: alt
