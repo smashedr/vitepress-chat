@@ -27,11 +27,13 @@ Made with the [AI SDK](https://ai-sdk.dev/).
 
 ## Install
 
+Using your favorite package manager...
+
 ```shell
 npm install github:smashedr/ai-chat-server
 ```
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/smashedr/vitepress-chat/)
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
 
 ## Setup
 
@@ -71,7 +73,7 @@ export default defineConfig({
 })
 ```
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/smashedr/vitepress-chat/)
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
 
 ### Server
 
