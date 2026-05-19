@@ -170,6 +170,8 @@ export default defineConfig({
     //   copyright: '<a href="/privacy">Privacy Policy</a>',
     // },
 
+    ignoreDeadLinks: [/^https?:\/\/localhost/],
+
     externalLinkIcon: true,
     outline: 'deep',
   },
