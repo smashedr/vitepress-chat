@@ -12,8 +12,8 @@
 
 # VitePress Chat Plugin
 
-<a title="VitePress Chat Plugin" href="https://github.com/smashedr/vitepress-chat?tab=readme-ov-file#readme" target="_blank">
-<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/.github/assets/logo.svg"></a>
+<a title="VitePress Chat Plugin" href="https://smashedr.github.io/vitepress-chat/" target="_blank">
+<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/docs/public/images/logo.svg"></a>
 
 AI Chat trained on your docs with live-streaming results from any provider you choose via a secure [ai-chat-server](https://github.com/smashedr/ai-chat-server).
 

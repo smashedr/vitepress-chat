@@ -18,11 +18,18 @@ prev:
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
+<a title="VitePress Chat Plugin" href="https://smashedr.github.io/vitepress-chat/" target="_blank">
+<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/docs/public/images/logo.svg"></a>
+
 [[toc]]
 
-To get started, ask AI.
+To get started [Install](#install) and [Configure](#configure) the plugin.
+
+Or ask AI with the Chat button in the bottom right...
 
 ## Install
+
+Using your favorite package manager...
 
 ```shell
 npm install github:smashedr/ai-chat-server
