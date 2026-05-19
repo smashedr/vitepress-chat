@@ -89,6 +89,7 @@ export default defineConfig({
   ],
 
   cleanUrls: true,
+  ignoreDeadLinks: [/^https?:\/\/localhost/],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     siteTitle: settings.title,
@@ -169,8 +170,6 @@ export default defineConfig({
     //   message: '<a href="/privacy">Privacy Policy</a>',
     //   copyright: '<a href="/privacy">Privacy Policy</a>',
     // },
-
-    ignoreDeadLinks: [/^https?:\/\/localhost/],
 
     externalLinkIcon: true,
     outline: 'deep',
