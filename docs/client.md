@@ -63,6 +63,7 @@ Then add the instruction generator vite plugin to your config.
 
 ```typescript
 import { defineConfig } from 'vitepress'
+
 import vitePressInstructions from '@cssnr/vitepress-chat/instructions-plugin'
 
 // https://vitepress.dev/reference/site-config

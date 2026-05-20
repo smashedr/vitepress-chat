@@ -46,6 +46,10 @@ onMounted(async () => {
   // console.log('%c ON MOUNTED', 'color: SpringGreen')
   console.log('baseUrl:', base)
   try {
+    if (import.meta.env.VITE_AI_DEV_INSTRUCTIONS) {
+      instructions.value = import.meta.env.VITE_AI_DEV_INSTRUCTIONS
+      return console.log('DEV instructions:', instructions.value)
+    }
     const res = await fetch(`${base}instructions.txt`)
     console.log('res.status:', res.status)
     if (res.ok) {
@@ -119,6 +123,25 @@ function scrollToBottom() {
   anchorEl.value?.scrollIntoView({ block: 'end' })
 }
 
+function onTextareaKeydown(e: KeyboardEvent) {
+  // allow enter to send and ctrl/shift/meta+enter to make newline
+  if (e.key !== 'Enter') return
+  e.preventDefault()
+  if (e.shiftKey || e.ctrlKey || e.metaKey) {
+    const el = inputEl.value
+    if (!el) return
+    const start = el.selectionStart
+    const end = el.selectionEnd
+    const val = input.value
+    input.value = val.slice(0, start) + '\n' + val.slice(end)
+    nextTick(() => {
+      el.selectionStart = el.selectionEnd = start + 1
+    })
+  } else {
+    handleSubmit(e)
+  }
+}
+
 function handleSubmit(e: Event) {
   e.preventDefault()
   const text = input.value.trim()
@@ -182,10 +205,7 @@ function handleSubmit(e: Event) {
           </span>
           <div class="message-bubble" @click="onBubbleClick">
             <span v-for="(part, i) in message.parts" :key="i">
-              <span
-                v-if="part.type === 'text'"
-                v-html="message.role === 'user' ? part.text : renderMarkdown(part.text)"
-              />
+              <span v-if="part.type === 'text'" v-html="renderMarkdown(part.text)" />
             </span>
           </div>
         </div>
@@ -201,13 +221,14 @@ function handleSubmit(e: Event) {
 
       <!-- ── Input bar ──────────────────────────────────────── -->
       <form class="chat-form" @submit="handleSubmit">
-        <input
+        <textarea
           ref="inputEl"
           v-model="input"
           class="chat-input"
           :disabled="chat.status !== 'ready'"
           placeholder="Message…"
           autocomplete="off"
+          @keydown="onTextareaKeydown"
         />
         <button type="submit" class="chat-send" :disabled="chat.status !== 'ready' || !input.trim()" title="Send">
           <svg
@@ -275,7 +296,7 @@ function handleSubmit(e: Event) {
   flex-direction: column;
   flex: 1;
   min-height: 0; /* critical: lets flex children shrink past content height */
-  padding-top: 20px;
+  padding-top: 22px;
 }
 
 /* ─── Messages area ───────────────────────────────────────── */
@@ -371,8 +392,9 @@ function handleSubmit(e: Event) {
 }
 
 .message--user .message-bubble {
-  background: var(--vp-c-brand-1);
-  color: #fff;
+  background: var(--vp-c-default-2);
+  color: var(--vp-c-text-2);
+  border: 1px solid var(--vp-c-border);
   border-bottom-right-radius: 4px;
 }
 
@@ -436,8 +458,8 @@ function handleSubmit(e: Event) {
 .chat-input {
   flex: 1;
   min-width: 0;
-  padding: 9px 14px;
-  border-radius: 22px;
+  padding: 8px;
+  border-radius: 8px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
@@ -445,6 +467,7 @@ function handleSubmit(e: Event) {
   line-height: 1.4;
   outline: none;
   transition: border-color 0.2s;
+  height: 80px;
 }
 .chat-input::placeholder {
   color: var(--vp-c-text-3);

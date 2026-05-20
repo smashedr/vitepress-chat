@@ -18,12 +18,13 @@
 - [Install](#Install)
 - [Setup](#Setup)
   - [Server](#Server)
+- [Development](#Development)
 - [Support](#Support)
 - [Contributing](#Contributing)
 
 AI Chat trained on your docs with live-streaming results from any provider you choose via a secure [ai-chat-server](https://github.com/smashedr/ai-chat-server).
 
-For a live demo see docs: <https://smashedr.github.io/vitepress-chat/>
+[![View Live Demo](https://img.shields.io/badge/view_live_demo-green?style=for-the-badge&logo=chatbot&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
 
 Built with the [AI SDK](https://ai-sdk.dev/).
 
@@ -90,6 +91,27 @@ For server set instructions see:
 
 - Documentation: <https://smashedr.github.io/vitepress-chat/server>
 - GitHub Repository: <https://github.com/smashedr/ai-chat-server>
+
+## Development
+
+The docs run the plugin from source.
+
+Create a `.env.development` file similar to this.
+
+```text
+VITE_AI_AUTH=Basic Abc123=
+VITE_AI_API=http://localhost:3000/
+VITE_AI_DEV_INSTRUCTIONS=You are a helpful assistant testing a chat box on a website and should respond with text/links in the requested length and formatting.
+```
+
+Note the `VITE_AI_DEV_INSTRUCTIONS` will replace the generated `instructions.txt` for development.
+
+Then run the docs to test your changes.
+
+```shell
+npm i
+npm run docs
+```
 
 ## Support
 
