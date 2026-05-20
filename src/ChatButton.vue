@@ -121,8 +121,10 @@ function scrollToBottom() {
 
 function handleSubmit(e: Event) {
   e.preventDefault()
-  if (!input.value.trim()) return
-  chat.sendMessage({ text: input.value })
+  const text = input.value.trim()
+  if (!text) return
+  scrollToBottom()
+  chat.sendMessage({ text })
   input.value = ''
   focusInput()
 }
@@ -283,7 +285,7 @@ function handleSubmit(e: Event) {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   padding: 4px 2px 8px;
   /*scroll-behavior: smooth;*/
 }
