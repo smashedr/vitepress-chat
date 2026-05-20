@@ -1,5 +1,7 @@
 # AI Chat Server
 
+<div class="badges">
+
 [![GitHub Release Version](https://img.shields.io/github/v/release/smashedr/ai-chat-server?logo=github)](https://github.com/smashedr/ai-chat-server/releases/latest)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/smashedr/ai-chat-server/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/smashedr/ai-chat-server/actions/workflows/build.yaml)
 [![Workflow Deploy](https://img.shields.io/github/actions/workflow/status/smashedr/ai-chat-server/deploy.yaml?logo=norton&logoColor=white&label=deploy)](https://github.com/smashedr/ai-chat-server/actions/workflows/deploy.yaml)
@@ -16,6 +18,8 @@
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
+</div>
+
 <a title="AI Chat Server" href="https://github.com/smashedr/ai-chat-server?tab=readme-ov-file#readme" target="_blank">
 <img alt="AI Chat Server" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/ai-chat-server/refs/heads/master/.github/assets/logo.svg"></a>
 
@@ -23,7 +27,7 @@
 
 AI Chat Server using the [AI SDK](https://ai-sdk.dev/).
 
-<https://github.com/smashedr/ai-chat-server>
+Source Code: <https://github.com/smashedr/ai-chat-server>
 
 ## Running
 

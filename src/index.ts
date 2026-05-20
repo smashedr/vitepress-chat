@@ -4,9 +4,7 @@ import ChatButton from './ChatButton.vue'
 export { ChatButton }
 
 export interface ChatOptions {
-  /** API endpoint URL for the chat transport */
   api: string
-  /** Additional headers to send with chat requests */
   headers?: Record<string, string>
 }
 
