@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
   flex-direction: column;
   gap: 16px;
   background: var(--vp-local-search-bg);
-  width: min(100vw - 90px, 960px);
+  width: min(100vw - 90px, 900px);
   height: min(100vh - 128px);
   border-radius: 6px;
   overflow: hidden;
