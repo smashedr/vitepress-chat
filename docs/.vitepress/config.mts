@@ -99,8 +99,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       {
         text: 'Get Started',
-        link: '/setup',
-        activeMatch: '/setup',
+        link: '/client',
+        activeMatch: '/client',
       },
       { text: 'Support', link: '/support', activeMatch: '/support' },
       {
@@ -133,8 +133,7 @@ export default defineConfig({
         // base: '/guides',
         // collapsed: false,
         items: [
-          { text: 'Setup', link: '/setup' },
-          // { text: 'Client', link: '/client' },
+          { text: 'Client', link: '/client' },
           { text: 'Server', link: '/server' },
         ],
       },

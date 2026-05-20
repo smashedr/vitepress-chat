@@ -1,7 +1,7 @@
 ---
 next:
   text: 'Get Started'
-  link: '/setup'
+  link: '/client'
 ---
 
 # Support

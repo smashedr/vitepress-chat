@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, nextTick, useTemplateRef, onMounted } from 'vue'
+import { ref, watch, nextTick, useTemplateRef, onMounted, onUnmounted } from 'vue'
 import { DefaultChatTransport } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 import type { ChatOptions } from './index'
@@ -11,7 +11,7 @@ import 'highlight.js/styles/github-dark.css'
 
 const props = defineProps<ChatOptions>()
 
-if (!props.api) throw new Error('ChatButton - missing required prop: api')
+// if (!props.api) throw new Error('ChatButton - missing required prop: api')
 
 marked.use(
   markedHighlight({
@@ -26,6 +26,7 @@ marked.use(
 const isOpen = ref(false)
 const input = ref('')
 const messagesEl = useTemplateRef('messagesEl')
+const anchorEl = useTemplateRef('anchorEl')
 const inputEl = useTemplateRef('inputEl')
 
 const base = import.meta.env.BASE_URL || '/'
@@ -71,6 +72,27 @@ const chat = new Chat({
   },
 })
 
+let autoScroll = true
+let observer: MutationObserver | null = null
+
+watch(messagesEl, (el) => {
+  observer?.disconnect()
+  if (!el) return
+  observer = new MutationObserver(() => {
+    if (autoScroll) anchorEl.value?.scrollIntoView({ block: 'end' })
+  })
+  observer.observe(el, { childList: true, subtree: true, characterData: true })
+})
+
+onUnmounted(() => observer?.disconnect())
+
+// Release auto-scroll when user scrolls up; re-lock when back at bottom
+function onScroll() {
+  const el = messagesEl.value
+  if (!el) return
+  autoScroll = el.scrollHeight - el.scrollTop - el.clientHeight < 40
+}
+
 // Focus on open
 watch(isOpen, (val) => {
   console.log('watch: %c isOpen', 'color: SpringGreen', val)
@@ -93,8 +115,8 @@ function focusInput() {
 }
 
 function scrollToBottom() {
-  console.log('scrollToBottom:', !!messagesEl.value)
-  if (messagesEl.value) messagesEl.value.scrollTop = messagesEl.value.scrollHeight
+  autoScroll = true
+  anchorEl.value?.scrollIntoView({ block: 'end' })
 }
 
 function handleSubmit(e: Event) {
@@ -128,7 +150,7 @@ function handleSubmit(e: Event) {
   <VPChatBox v-if="isOpen" @close="isOpen = false">
     <div class="chat-layout">
       <!-- ── Messages ───────────────────────────────────────── -->
-      <div ref="messagesEl" class="chat-messages">
+      <div ref="messagesEl" class="chat-messages" @scroll="onScroll">
         <div v-if="chat.messages.length === 0" class="chat-empty">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -167,12 +189,12 @@ function handleSubmit(e: Event) {
         </div>
 
         <!-- Typing indicator -->
-        <div v-if="chat.status === 'streaming'" class="message message--ai">
-          <span class="message-label">AI</span>
-          <div class="message-bubble message-bubble--typing">
-            <span class="dot" /><span class="dot" /><span class="dot" />
-          </div>
+        <div v-if="chat.status === 'submitted'" class="message message--ai">
+          <div class="message-bubble--typing"><span class="dot" /><span class="dot" /><span class="dot" /></div>
         </div>
+
+        <!-- Scroll sentinel: MutationObserver targets scrollIntoView here -->
+        <div ref="anchorEl" />
       </div>
 
       <!-- ── Input bar ──────────────────────────────────────── -->
@@ -219,12 +241,12 @@ function handleSubmit(e: Event) {
   gap: 6px;
   padding: 10px 18px;
   border-radius: 24px;
-  background: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-2);
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--vp-c-brand-1) 40%, transparent);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--vp-c-brand-2) 40%, transparent);
   transition:
     background-color 0.2s,
     box-shadow 0.2s,
@@ -232,8 +254,8 @@ function handleSubmit(e: Event) {
 }
 
 .vp-chat-button:hover {
-  background: var(--vp-c-brand-2);
-  transform: translateY(-1px);
+  background: var(--vp-c-brand-1);
+  /*transform: translateY(-1px);*/
 }
 
 .vp-chat-button:active {
@@ -251,6 +273,7 @@ function handleSubmit(e: Event) {
   flex-direction: column;
   flex: 1;
   min-height: 0; /* critical: lets flex children shrink past content height */
+  padding-top: 20px;
 }
 
 /* ─── Messages area ───────────────────────────────────────── */
@@ -262,7 +285,7 @@ function handleSubmit(e: Event) {
   flex-direction: column;
   gap: 12px;
   padding: 4px 2px 8px;
-  scroll-behavior: smooth;
+  /*scroll-behavior: smooth;*/
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -298,7 +321,7 @@ function handleSubmit(e: Event) {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-width: 85%;
+  max-width: 96%;
 }
 .message--user {
   align-self: flex-end;

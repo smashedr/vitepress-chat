@@ -11,11 +11,8 @@ hero:
     alt: VitePress Chat
   actions:
     - text: Get Started
-      link: /setup
+      link: /client
       theme: brand
-    #- text: Client
-    #  link: /client
-    #  theme: alt
     - text: Server
       link: /server
       theme: alt
@@ -26,7 +23,7 @@ hero:
 features:
   - title: Setup and Usage
     details: View Setup and Usage Guides
-    link: /setup
+    link: /client
   - title: Support
     details: Get Help with Anything
     link: /support
