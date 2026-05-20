@@ -25,7 +25,10 @@ AI Chat trained on your docs with live-streaming results from any provider you c
 
 For a live demo see docs: <https://smashedr.github.io/vitepress-chat/>
 
-Made with the [AI SDK](https://ai-sdk.dev/).
+Built with the [AI SDK](https://ai-sdk.dev/).
+
+- Client: https://github.com/smashedr/vitepress-chat
+- Server: https://github.com/smashedr/ai-chat-server
 
 ## Install
 

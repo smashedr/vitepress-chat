@@ -96,13 +96,13 @@ onBeforeUnmount(() => {
 .shell {
   position: relative;
   margin: 64px auto;
-  padding: 20px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   background: var(--vp-local-search-bg);
-  width: min(100vw - 60px, 720px);
-  height: min(100vh - 128px, 600px);
+  width: min(100vw - 90px, 900px);
+  height: min(100vh - 128px);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -120,8 +120,8 @@ onBeforeUnmount(() => {
 /* ─── Close button ────────────────────────────────────────── */
 .close-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 2px;
+  right: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
