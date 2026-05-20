@@ -255,7 +255,7 @@ function handleSubmit(e: Event) {
 
 .vp-chat-button:hover {
   background: var(--vp-c-brand-1);
-  /*transform: translateY(-1px);*/
+  transform: scale(1.04);
 }
 
 .vp-chat-button:active {
@@ -464,7 +464,7 @@ function handleSubmit(e: Event) {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-2);
   color: #fff;
   cursor: pointer;
   transition:
@@ -473,7 +473,7 @@ function handleSubmit(e: Event) {
     opacity 0.2s;
 }
 .chat-send:hover:not(:disabled) {
-  background: var(--vp-c-brand-2);
+  background: var(--vp-c-brand-1);
   transform: scale(1.08);
 }
 .chat-send:active:not(:disabled) {
