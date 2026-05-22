@@ -213,7 +213,7 @@ function handleSubmit(e: Event) {
         <div ref="anchorEl" />
       </div>
 
-      <hr class="chat-divider">
+      <hr class="chat-divider" />
 
       <!-- ── Error banner ──────────────────────────────────── -->
       <div v-if="error" class="chat-error">{{ error }}</div>
