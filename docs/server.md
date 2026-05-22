@@ -3,6 +3,8 @@
 <div class="badges">
 
 [![GitHub Release Version](https://img.shields.io/github/v/release/smashedr/ai-chat-server?logo=github)](https://github.com/smashedr/ai-chat-server/releases/latest)
+[![Image Latest](https://badges.cssnr.com/ghcr/tags/smashedr/ai-chat-server/latest)](https://github.com/smashedr/ai-chat-server/pkgs/container/ai-chat-server)
+[![Image Size](https://badges.cssnr.com/ghcr/size/smashedr/ai-chat-server)](https://github.com/smashedr/ai-chat-server/pkgs/container/ai-chat-server)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/smashedr/ai-chat-server/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/smashedr/ai-chat-server/actions/workflows/build.yaml)
 [![Workflow Deploy](https://img.shields.io/github/actions/workflow/status/smashedr/ai-chat-server/deploy.yaml?logo=norton&logoColor=white&label=deploy)](https://github.com/smashedr/ai-chat-server/actions/workflows/deploy.yaml)
 [![Workflow Release](https://img.shields.io/github/actions/workflow/status/smashedr/ai-chat-server/release.yaml?logo=norton&logoColor=white&label=release)](https://github.com/smashedr/ai-chat-server/actions/workflows/release.yaml)
@@ -14,9 +16,6 @@
 [![GitHub Discussions](https://img.shields.io/github/discussions/smashedr/ai-chat-server?logo=theconversation)](https://github.com/smashedr/ai-chat-server/discussions)
 [![GitHub Forks](https://img.shields.io/github/forks/smashedr/ai-chat-server?style=flat&logo=forgejo&logoColor=white)](https://github.com/smashedr/ai-chat-server/forks)
 [![GitHub Repo Stars](https://img.shields.io/github/stars/smashedr/ai-chat-server?style=flat&logo=gleam&logoColor=white)](https://github.com/smashedr/ai-chat-server/stargazers)
-[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=apachespark&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
-[![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
 </div>
 
@@ -25,9 +24,17 @@
 
 [[toc]]
 
-AI Chat Server using the [AI SDK](https://ai-sdk.dev/).
+AI Chat Proxy Server using the [AI SDK](https://ai-sdk.dev/).
 
 Source Code: <https://github.com/smashedr/ai-chat-server>
+
+## Features
+
+- Works with Claude, OpenAI and Gemini
+- Live Stream Results to Client
+- Automatic Input Token Caching
+- Automatic API Retry on Failure
+- Deploy with Docker or Node
 
 ## Running
 
@@ -139,7 +146,7 @@ The client is currently available as a VitePress Plugin.
 
 Set your environment variables in the `settings.env` file.
 
-With node run.
+With Node run.
 
 ```shell
 npm run dev
