@@ -33,7 +33,7 @@ Source Code: <https://github.com/smashedr/ai-chat-server>
 - Works with Claude, OpenAI and Gemini
 - Live Stream Results to Client
 - Automatic Input Token Caching
-- Automatic API Retry on Failure
+- Automatic Retry on API Failures
 - Deploy with Docker or Node
 
 ## Setup
