@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, nextTick, useTemplateRef, onMounted, onUnmounted } from 'vue'
+import { computed, ref, watch, nextTick, useTemplateRef, onMounted, onUnmounted } from 'vue'
 import { DefaultChatTransport } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 import type { ChatOptions } from './index'
@@ -25,6 +25,7 @@ marked.use(
 
 const isOpen = ref(false)
 const input = ref('')
+const error = ref('')
 const messagesEl = useTemplateRef('messagesEl')
 const anchorEl = useTemplateRef('anchorEl')
 const inputEl = useTemplateRef('inputEl')
@@ -74,7 +75,13 @@ const chat = new Chat({
     scrollToBottom()
     focusInput()
   },
+  onError: (e) => {
+    console.error(e)
+    error.value = e.message
+  },
 })
+
+const chatBusy = computed(() => chat.status !== 'ready' && chat.status !== 'error')
 
 let autoScroll = true
 let observer: MutationObserver | null = null
@@ -147,6 +154,7 @@ function handleSubmit(e: Event) {
   const text = input.value.trim()
   if (!text) return
   scrollToBottom()
+  error.value = ''
   chat.sendMessage({ text })
   input.value = ''
   focusInput()
@@ -205,18 +213,23 @@ function handleSubmit(e: Event) {
         <div ref="anchorEl" />
       </div>
 
+      <hr class="chat-divider">
+
+      <!-- ── Error banner ──────────────────────────────────── -->
+      <div v-if="error" class="chat-error">{{ error }}</div>
+
       <!-- ── Input bar ──────────────────────────────────────── -->
       <form class="chat-form" @submit="handleSubmit">
         <textarea
           ref="inputEl"
           v-model="input"
           class="chat-input"
-          :disabled="chat.status !== 'ready'"
+          :disabled="chatBusy"
           placeholder="Message…"
           autocomplete="off"
           @keydown="onTextareaKeydown"
         />
-        <button type="submit" class="chat-send" :disabled="chat.status !== 'ready' || !input.trim()" title="Send">
+        <button type="submit" class="chat-send" :disabled="chatBusy || !input.trim()" title="Send">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -283,6 +296,7 @@ function handleSubmit(e: Event) {
   flex: 1;
   min-height: 0; /* critical: lets flex children shrink past content height */
   padding-top: 22px;
+  gap: 8px;
 }
 
 /* ─── Messages area ───────────────────────────────────────── */
@@ -431,13 +445,32 @@ function handleSubmit(e: Event) {
   }
 }
 
+/* ─── Error banner ────────────────────────────────────────── */
+.chat-error {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--vp-c-danger-soft);
+  border: 1px solid var(--vp-c-danger-2);
+  color: var(--vp-c-danger-1);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* ─── Divider ──────────────────────────────────────────────── */
+.chat-divider {
+  flex-shrink: 0;
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
 /* ─── Input bar ───────────────────────────────────────────── */
 .chat-form {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-top: 12px;
-  border-top: 1px solid var(--vp-c-divider);
   flex-shrink: 0; /* never let the form compress */
 }
 
