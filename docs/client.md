@@ -24,7 +24,7 @@ prev:
 
 </div>
 
-<a title="VitePress Chat Plugin" href="https://smashedr.github.io/vitepress-chat/" target="_blank">
+<a title="VitePress Chat Plugin" href="https://github.com/smashedr/vitepress-chat?tab=readme-ov-file#readme" target="_blank">
 <img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/docs/public/images/logo.svg"></a>
 
 [[toc]]
@@ -43,7 +43,13 @@ Using your favorite package manager...
 npm install github:smashedr/vitepress-chat
 ```
 
-## Configure
+To update after installing.
+
+```shell
+npm update @cssnr/vitepress-chat
+```
+
+## Setup
 
 First add the Chat to your DefaultTheme with api server and optional headers.
 
@@ -82,8 +88,7 @@ export default defineConfig({
 })
 ```
 
-&nbsp;
-
-That's it, the instructions are auto-generated on both dev and build modes.
+Now the `instructiosn.txt` will be auto-generated on dev and build from your docs
+and the Chat button will appear in the bottom right on all pages.
 
 If you don't have one setup yet, configure your [Server](server.md).

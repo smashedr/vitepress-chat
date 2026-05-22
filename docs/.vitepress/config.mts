@@ -12,7 +12,7 @@ const settings = {
   description: {
     short:
       'Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server.',
-    long: 'Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server.',
+    long: 'Easily add AI chat with knowledge on your site and live streaming results from a secure proxy server. Supports multiple providers, automatic input token caching, API failure retry and much more...',
   },
   base: '/vitepress-chat/', // set to empty string for no base path
   og_image: '/vitepress-chat/images/logo.png', // must be full path

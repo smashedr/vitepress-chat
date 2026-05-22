@@ -2,7 +2,7 @@ import DefaultTheme, { VPBadge } from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import './custom.css'
 
-import VitePressChat from '../../../src/index'
+import VitePressChat from '../../../src/index.ts'
 
 // noinspection JSUnusedGlobalSymbols
 export default {

@@ -1,33 +1,36 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, nextTick, shallowRef } from 'vue'
+import { onBeforeUnmount, shallowRef, watch } from 'vue'
 import { useScrollLock, useEventListener, onKeyStroke } from '@vueuse/core'
+
+const props = defineProps<{
+  visible?: boolean
+}>()
 
 const emit = defineEmits(['close'])
 
 const el = shallowRef<HTMLElement>()
 
-// Escape key closes the modal — this replaces the focus trap's escapeDeactivates
-onKeyStroke('Escape', () => {
-  emit('close')
-})
+const isLocked = useScrollLock(typeof window !== 'undefined' ? document.body : null)
 
-// Mirror VitePress: push a history state so the browser back button closes the modal
-onMounted(() => {
-  window.history.pushState(null, '', null)
+watch(
+  () => props.visible,
+  (val) => {
+    isLocked.value = val
+    if (val) window.history.pushState(null, '', null)
+  },
+)
+
+onKeyStroke('Escape', () => {
+  if (props.visible) {
+    emit('close')
+  }
 })
 
 useEventListener('popstate', (event) => {
-  event.preventDefault()
-  emit('close')
-})
-
-// Lock body scroll while open
-const isLocked = useScrollLock(typeof window !== 'undefined' ? document.body : null)
-
-onMounted(() => {
-  nextTick(() => {
-    isLocked.value = true
-  })
+  if (props.visible) {
+    event.preventDefault()
+    emit('close')
+  }
 })
 
 onBeforeUnmount(() => {
@@ -38,7 +41,7 @@ onBeforeUnmount(() => {
 <template>
   <Teleport to="body">
     <Transition name="vp-chat">
-      <div ref="el" class="VPChatBox">
+      <div v-if="visible" ref="el" class="VPChatBox">
         <!-- Clicking the backdrop closes the modal, same as VitePress -->
         <div class="backdrop" @click="$emit('close')" />
 

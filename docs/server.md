@@ -28,7 +28,7 @@ AI Chat Proxy Server using the [AI SDK](https://ai-sdk.dev/).
 
 Source Code: <https://github.com/smashedr/ai-chat-server>
 
-## Features
+### Features
 
 - Works with Claude, OpenAI and Gemini
 - Live Stream Results to Client
@@ -36,9 +36,11 @@ Source Code: <https://github.com/smashedr/ai-chat-server>
 - Automatic API Retry on Failure
 - Deploy with Docker or Node
 
-## Running
+## Setup
 
-Using Docker Run.
+[![Deploy to Render](https://img.shields.io/badge/Deploy_to_Render-4351E8?style=for-the-badge&logo=render)](https://render.com/deploy?repo=https://github.com/smashedr/ai-chat-server)
+
+Run with Docker.
 
 ```shell
 docker run --rm -p 80:3000 --name ai-chat-server \
@@ -60,34 +62,6 @@ services:
       - '80:3000'
 ```
 
-For a Docker Swarm and Traefik example with Basic Auth see the [docker-compose-swarm.yaml](https://github.com/smashedr/ai-chat-server/blob/master/docker-compose-swarm.yaml).
-
-For a Portainer Deploy workflow see the [.github/workflows/deploy.yaml](https://github.com/smashedr/ai-chat-server/blob/master/.github/workflows/deploy.yaml).
-
-## Setup
-
-Run with Docker.
-
-```shell
-docker run --rm -p 80:3000 --name ai-chat-server \
-    -e MODEL=gemini-2.5-flash \
-    -e GOOGLE_GENERATIVE_AI_API_KEY=xxx \
-    ghcr.io/smashedr/ai-chat-server:latest
-```
-
-Run with Docker Compose.
-
-```yaml
-services:
-  chat:
-    image: ghcr.io/smashedr/ai-chat-server:latest
-    environment:
-      MODEL: 'gpt-5.4-mini'
-      OPENAI_API_KEY: 'sk-proj-xxx'
-    ports:
-      - '80:3000'
-```
-
 Using Node.
 
 ```shell
@@ -95,7 +69,7 @@ npm i
 npm start
 ```
 
-Note: you will need to export or add your environment variables to the `settings.env` file.
+_Note: you will need to export or add your environment variables to the `settings.env` file._
 
 For a Docker Swarm + Traefik + Basic Auth example see the [docker-compose-swarm.yaml](https://github.com/smashedr/ai-chat-server/blob/master/docker-compose-swarm.yaml).
 
@@ -122,7 +96,7 @@ You must also set the API key for the MODEL you select.
 
 ## Client
 
-To send System Instructions from the client add them to the body.
+To send System Instructions from the client, add them to the body.
 
 ```typescript
 const chat = new Chat({
