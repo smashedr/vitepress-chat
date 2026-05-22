@@ -29,11 +29,14 @@ prev:
 
 [[toc]]
 
-To get started [Install](#install) and [Configure](#configure) the plugin.
+AI Chat trained on your docs with any provider you choose via a secure proxy [ai-chat-server](https://github.com/smashedr/ai-chat-server).
+The server features live-streaming results, automatic input token caching, automatic retry on failures and more.
+
+To get started [Install](#install) and [Setup](#setup) the plugin.
 
 Or ask AI with the Chat button in the bottom right...
 
-For a list of features, see the [Server Features](server.md#features).
+For a full list of features, see the [Server Features](server.md#features).
 
 ## Install
 

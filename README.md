@@ -27,7 +27,8 @@
 - [Support](#Support)
 - [Contributing](#Contributing)
 
-AI Chat trained on your docs with live-streaming results from any provider you choose via a secure [ai-chat-server](https://github.com/smashedr/ai-chat-server).
+AI Chat trained on your docs with any provider you choose via a secure proxy [ai-chat-server](https://github.com/smashedr/ai-chat-server).
+The server features live-streaming results, automatic input token caching, automatic retry on failures and more.
 
 Built with the [AI SDK](https://ai-sdk.dev/).
 
