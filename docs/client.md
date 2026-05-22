@@ -8,6 +8,11 @@ prev:
 
 <div class="badges">
 
+[![GitHub Release Version](https://img.shields.io/github/v/release/smashedr/vitepress-chat?logo=github)](https://github.com/smashedr/vitepress-chat/releases/latest)
+[![Deployment Docs](https://img.shields.io/github/deployments/smashedr/vitepress-chat/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/smashedr/vitepress-chat/deployments/docs)
+[![Deployment Preview](https://img.shields.io/github/deployments/smashedr/vitepress-chat/preview?logo=docker&logoColor=white&label=preview)](https://github.com/smashedr/vitepress-chat/deployments/preview)
+[![Workflow Release](https://img.shields.io/github/actions/workflow/status/smashedr/vitepress-chat/release.yaml?logo=norton&logoColor=white&label=release)](https://github.com/smashedr/vitepress-chat/actions/workflows/release.yaml)
+[![Workflow Lint](https://img.shields.io/github/actions/workflow/status/smashedr/vitepress-chat/lint.yaml?logo=norton&logoColor=white&label=lint)](https://github.com/smashedr/vitepress-chat/actions/workflows/lint.yaml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/smashedr/vitepress-chat?logo=listenhub&label=updated)](https://github.com/smashedr/vitepress-chat/pulse)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/smashedr/vitepress-chat?logo=buffer&label=repo%20size)](https://github.com/smashedr/vitepress-chat?tab=readme-ov-file#readme)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/smashedr/vitepress-chat?logo=devbox)](https://github.com/smashedr/vitepress-chat?tab=readme-ov-file#readme)
@@ -16,9 +21,6 @@ prev:
 [![GitHub Discussions](https://img.shields.io/github/discussions/smashedr/vitepress-chat?logo=theconversation)](https://github.com/smashedr/vitepress-chat/discussions)
 [![GitHub Forks](https://img.shields.io/github/forks/smashedr/vitepress-chat?style=flat&logo=forgejo&logoColor=white)](https://github.com/smashedr/vitepress-chat/forks)
 [![GitHub Repo Stars](https://img.shields.io/github/stars/smashedr/vitepress-chat?style=flat&logo=gleam&logoColor=white)](https://github.com/smashedr/vitepress-chat/stargazers)
-[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=apachespark&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
-[![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
 </div>
 
@@ -30,6 +32,8 @@ prev:
 To get started [Install](#install) and [Configure](#configure) the plugin.
 
 Or ask AI with the Chat button in the bottom right...
+
+For a list of features, see the [Server Features](server.md#features).
 
 ## Install
 

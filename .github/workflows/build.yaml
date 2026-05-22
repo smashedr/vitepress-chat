@@ -19,15 +19,15 @@ on:
         type: boolean
         default: false
 
-#concurrency:
-#  group: ${{ github.workflow }}-${{ github.ref }}
-#  cancel-in-progress: true
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     name: "Build"
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: "Debug CTX github"
@@ -37,7 +37,7 @@ jobs:
         run: echo "$GITHUB_CTX"
 
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -72,7 +72,7 @@ jobs:
 
       - name: "Upload Artifact"
         if: ${{ !inputs.pages }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.name }}
           path: ${{ inputs.path }}
@@ -81,7 +81,7 @@ jobs:
 
       - name: "Upload Pages Artifact"
         if: ${{ inputs.pages }}
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ${{ inputs.path }}
 

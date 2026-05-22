@@ -22,8 +22,8 @@ jobs:
         with:
           app-id: 146360
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: "smashedr"
-          repositories: "vitepress-chat"
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
 
       - name: "AI Issue"
         uses: smashedr/ai-issue-action@master
