@@ -379,7 +379,7 @@ function handleSubmit(e: Event) {
 
 .message--user .message-bubble {
   background: var(--vp-c-default-2);
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-border);
   border-bottom-right-radius: 4px;
 }

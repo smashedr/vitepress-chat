@@ -79,12 +79,13 @@ For a Portainer Deploy workflow see the [.github/workflows/deploy.yaml](https://
 
 Environment Variables
 
-| Variable       | Req. | Default | Description         |
-| :------------- | :--: | :------ | :------------------ |
-| `MODEL`        | Yes  | -       | Model to Use        |
-| `MAX_TOKENS`   |  -   | -       | Max Output Tokens   |
-| `INSTRUCTIONS` |  -   | -       | System Instructions |
-| `PORT`         |  -   | 3000    | Server Port         |
+| Variable              | Req. | Default | Description          |
+| :-------------------- | :--: | :------ | :------------------- |
+| `MODEL`               | Yes  | -       | Model to Use         |
+| `MAX_TOKENS`          |  -   | -       | Max Output Tokens    |
+| `INSTRUCTIONS`        |  -   | -       | System Instructions  |
+| `AI_SDK_LOG_WARNINGS` |  -   | -       | Disable SDK Warnings |
+| `PORT`                |  -   | 3000    | Server Port          |
 
 You must also set the API key for the MODEL you select.
 
