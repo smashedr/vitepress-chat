@@ -169,29 +169,15 @@ function handleSubmit(e: Event) {
     >
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
-    Chat
+    AI Chat
   </button>
 
-  <VPChatBox v-if="isOpen" @close="isOpen = false">
+  <VPChatBox :visible="isOpen" @close="isOpen = false">
     <div class="chat-layout">
       <!-- ── Messages ───────────────────────────────────────── -->
       <div ref="messagesEl" class="chat-messages" @scroll="onScroll">
         <div v-if="chat.messages.length === 0" class="chat-empty">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-          <p>Ask me anything.</p>
+          <p>Ask AI Anything</p>
         </div>
 
         <div
@@ -256,7 +242,7 @@ function handleSubmit(e: Event) {
 /* ─── Trigger button ──────────────────────────────────────── */
 .vp-chat-button {
   position: fixed;
-  bottom: 40px;
+  bottom: 32px;
   right: 16px;
   z-index: 30;
   display: flex;
@@ -330,9 +316,9 @@ function handleSubmit(e: Event) {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: var(--vp-c-text-3);
-  opacity: 0.6;
-  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  opacity: 0.8;
+  font-size: 1.6rem;
   user-select: none;
 }
 .chat-empty p {
@@ -393,7 +379,7 @@ function handleSubmit(e: Event) {
 
 .message--user .message-bubble {
   background: var(--vp-c-default-2);
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-border);
   border-bottom-right-radius: 4px;
 }

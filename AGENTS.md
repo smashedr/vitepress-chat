@@ -7,3 +7,5 @@ VitePress Plugin in `src/`
 VitePress Docs in `docs/`
 
 The Docs run the Plugin from `src` to make development easier.
+
+A secure proxy server was built to work with this client: https://github.com/smashedr/ai-chat-server
