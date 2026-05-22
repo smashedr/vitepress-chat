@@ -5,6 +5,7 @@ on:
   push:
     branches-ignore: [master, legacy]
     paths:
+      - ".github/workflows/build.yaml"
       - ".github/workflows/preview.yaml"
       - ".vitepress/**"
       - "docs/**"
