@@ -57,11 +57,11 @@
     "prettier:write": "npx prettier --write ."
   },
   "devDependencies": {
-    "@ai-sdk/vue": "^3.0.190",
+    "@ai-sdk/vue": "^3.0.191",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.9.1",
     "@vitejs/plugin-vue": "^6.0.7",
-    "ai": "^6.0.190",
+    "ai": "^6.0.191",
     "eslint": "^10.4.0",
     "eslint-plugin-vue": "^10.9.1",
     "globals": "^17.6.0",
