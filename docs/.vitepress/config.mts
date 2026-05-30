@@ -35,7 +35,7 @@ export default defineConfig({
     server: {
       allowedHosts: true,
     },
-    plugins: [vitePressInstructions()],
+    plugins: [vitePressInstructions({ exclude: ['index.md'] })],
   },
 
   title: settings.title,

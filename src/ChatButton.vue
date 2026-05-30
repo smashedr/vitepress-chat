@@ -165,17 +165,18 @@ function handleSubmit(e: Event) {
   <button class="vp-chat-button" title="Open chat" @click="isOpen = true">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
+      stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <path
+        d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+      />
     </svg>
     AI Chat
   </button>
@@ -185,7 +186,7 @@ function handleSubmit(e: Event) {
       <!-- ── Messages ───────────────────────────────────────── -->
       <div ref="messagesEl" class="chat-messages" @scroll="onScroll">
         <div v-if="chat.messages.length === 0" class="chat-empty">
-          <p>Ask AI Anything</p>
+          <p>Ask Anything</p>
         </div>
 
         <div
@@ -225,15 +226,15 @@ function handleSubmit(e: Event) {
           v-model="input"
           class="chat-input"
           :disabled="chatBusy"
-          placeholder="Message…"
+          placeholder="Enter your question (use Ctrl/Shift+Enter for new lines)…"
           autocomplete="off"
           @keydown="onTextareaKeydown"
         />
         <button type="submit" class="chat-send" :disabled="chatBusy || !input.trim()" title="Send">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -470,23 +471,25 @@ function handleSubmit(e: Event) {
 .chat-form {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0; /* never let the form compress */
+  flex-shrink: 0;
+  position: relative;
 }
 
 .chat-input {
   flex: 1;
   min-width: 0;
-  padding: 8px;
+  padding: 8px 44px 8px 8px;
   border-radius: 8px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
+  font-family: inherit;
   font-size: 0.9rem;
   line-height: 1.4;
   outline: none;
   transition: border-color 0.2s;
   height: 80px;
+  min-height: 50px;
 }
 .chat-input::placeholder {
   color: var(--vp-c-text-3);
@@ -501,7 +504,9 @@ function handleSubmit(e: Event) {
 
 /* ─── Send button ─────────────────────────────────────────── */
 .chat-send {
-  flex-shrink: 0;
+  position: absolute;
+  top: 6px;
+  right: 6px;
   display: flex;
   align-items: center;
   justify-content: center;

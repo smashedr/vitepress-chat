@@ -3,16 +3,22 @@
 import type { Plugin, ResolvedConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
+import { minimatch } from 'minimatch'
 
 export interface InstructionsOptions {
-  contentDir?: string
-  outputFilename?: string
+  contentDir?: string // defaults to your VitePress root dir
+  exclude?: string[] // globs to exclude from instructions
+  outputFilename?: string // for advanced use only
 }
 
 const excludeDirs = new Set(['.vitepress', 'node_modules', '.git'])
 
 export function vitePressInstructions(options: InstructionsOptions = {}): Plugin {
-  const { contentDir: contentDirOption, outputFilename = 'instructions.txt' } = options
+  const {
+    contentDir: contentDirOption,
+    exclude = [],
+    outputFilename = 'instructions.txt',
+  } = options
 
   let compiled = ''
   let fileCount = 0
@@ -30,7 +36,10 @@ export function vitePressInstructions(options: InstructionsOptions = {}): Plugin
       return false
     }
 
-    const files = collectMdFiles(contentRoot)
+    const files = collectMdFiles(contentRoot).filter((file) => {
+      const rel = path.relative(contentRoot, file).replace(/\\/g, '/')
+      return !exclude.some((pattern) => minimatch(rel, pattern))
+    })
     const parts = files.map((file) => {
       const rel = path.relative(contentRoot, file).replace(/\\/g, '/')
       let raw = fs.readFileSync(file, 'utf-8')

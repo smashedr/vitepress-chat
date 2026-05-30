@@ -25,9 +25,7 @@ prev:
 </div>
 
 <a title="VitePress Chat Plugin" href="https://github.com/smashedr/vitepress-chat?tab=readme-ov-file#readme" target="_blank">
-<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/docs/public/images/logo.svg"></a>
-
-[[toc]]
+<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="/images/logo.svg"></a>
 
 AI Chat trained on your docs with any provider you choose via a secure proxy [ai-chat-server](https://github.com/smashedr/ai-chat-server).
 The server features live-streaming results, automatic input token caching, automatic retry on failures and more.
@@ -91,7 +89,16 @@ export default defineConfig({
 })
 ```
 
-Now the `instructiosn.txt` will be auto-generated on dev and build from your docs
-and the Chat button will appear in the bottom right on all pages.
+This generates the `instructiosn.txt` from your docs folder when you run dev or build.
+
+To exclude files/folders from the instructions use the exclude globs.
+
+```typescript
+export default defineConfig({
+  vite: {
+    plugins: [vitePressInstructions({ exclude: ['index.md'] })],
+  },
+})
+```
 
 If you don't have one setup yet, configure your [Server](server.md).

@@ -92,8 +92,17 @@ export default defineConfig({
 })
 ```
 
-Now the `instructiosn.txt` will be auto-generated on dev and build from your docs
-and the Chat button will appear in the bottom right on all pages.
+This generates the `instructiosn.txt` from your docs folder when you run dev or build.
+
+To exclude files/folders from the instructions use the exclude globs.
+
+```typescript
+export default defineConfig({
+  vite: {
+    plugins: [vitePressInstructions({ exclude: ['index.md'] })],
+  },
+})
+```
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
 
