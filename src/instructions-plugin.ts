@@ -55,6 +55,10 @@ export function vitePressInstructions(options: InstructionsOptions = {}): Plugin
   return {
     name: 'vitepress-chat-instructions',
 
+    config() {
+      return { ssr: { noExternal: ['@cssnr/vitepress-chat'] } }
+    },
+
     configResolved(resolved) {
       config = resolved
       compile()

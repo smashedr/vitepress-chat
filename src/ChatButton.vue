@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch, nextTick, useTemplateRef, onMounted, onUnmounted } from 'vue'
+import { useData } from 'vitepress'
 import { DefaultChatTransport } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 import type { ChatOptions } from './index'
@@ -30,7 +31,8 @@ const messagesEl = useTemplateRef('messagesEl')
 const anchorEl = useTemplateRef('anchorEl')
 const inputEl = useTemplateRef('inputEl')
 
-const base = import.meta.env.BASE_URL || '/'
+const { site } = useData()
+const base = site.value.base || '/'
 const system = `
 You are a helpful assistant responding to questions in a chat box on a website.
 MUST ALWAYS format ALL URLs (links) as Markdown links WITHOUT \`.md\` ending!

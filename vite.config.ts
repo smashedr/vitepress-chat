@@ -22,8 +22,7 @@ export default defineConfig({
     rolldownOptions: {
       external: [
         'vue',
-        'vitepress/theme',
-        /^vitepress\/.*/,
+        /^vitepress(\/.*)?$/,
         /^node:.*/,
         '@ai-sdk/vue',
         'ai',
