@@ -25,9 +25,7 @@ prev:
 </div>
 
 <a title="VitePress Chat Plugin" href="https://github.com/smashedr/vitepress-chat?tab=readme-ov-file#readme" target="_blank">
-<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/vitepress-chat/refs/heads/master/docs/public/images/logo.svg"></a>
-
-[[toc]]
+<img alt="VitePress Chat Plugin" align="right" width="128" height="auto" src="/images/logo.svg"></a>
 
 AI Chat trained on your docs with any provider you choose via a secure proxy [ai-chat-server](https://github.com/smashedr/ai-chat-server).
 The server features live-streaming results, automatic input token caching, automatic retry on failures and more.

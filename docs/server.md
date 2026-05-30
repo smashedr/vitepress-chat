@@ -20,13 +20,11 @@
 </div>
 
 <a title="AI Chat Server" href="https://github.com/smashedr/ai-chat-server?tab=readme-ov-file#readme" target="_blank">
-<img alt="AI Chat Server" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/ai-chat-server/refs/heads/master/.github/assets/logo.svg"></a>
-
-[[toc]]
+<img alt="AI Chat Server" align="right" width="128" height="auto" src="/images/server.svg"></a>
 
 AI Chat Proxy Server using the [AI SDK](https://ai-sdk.dev/).
 
-Source Code: <https://github.com/smashedr/ai-chat-server>
+[[toc]]
 
 ### Features
 
@@ -146,3 +144,5 @@ To build and test the docker image run.
 bash build.sh
 docker compose up
 ```
+
+Source Code: <https://github.com/smashedr/ai-chat-server>
