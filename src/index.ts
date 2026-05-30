@@ -6,6 +6,7 @@ export { ChatButton }
 export interface ChatOptions {
   api: string
   headers?: Record<string, string>
+  instructionsFile?: string
 }
 
 export default function VitePressChat(theme: any, options: ChatOptions) {

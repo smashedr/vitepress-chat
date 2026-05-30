@@ -35,7 +35,9 @@ export default defineConfig({
     server: {
       allowedHosts: true,
     },
-    plugins: [vitePressInstructions({ exclude: ['index.md'] })],
+    plugins: [
+      vitePressInstructions({ exclude: ['index.md'], outputFilename: 'llms.txt' }),
+    ],
   },
 
   title: settings.title,

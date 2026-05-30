@@ -55,6 +55,13 @@ npm update @cssnr/vitepress-chat
 
 ## Setup
 
+There are two components, the [Chat Plugin](#chat-plugin) which adds the chat button and box.
+Plus the [Instructions Generator](#instructions-generator) plugin which generates instructions.txt file.
+
+This allows you to use this with other instructions generator plugins or existing `llms.txt` files.
+
+### Chat Plugin
+
 First add the Chat to your DefaultTheme with api server and optional headers.
 
 - `.vitepress/theme/index.[js,ts]`
@@ -74,6 +81,21 @@ export default {
   }),
 }
 ```
+
+With a custom instructionsFile for use with other generators.
+
+```typescript
+export default {
+  ...VitePressChat(DefaultTheme, {
+    api: 'https://ai-chat-server.cssnr.com/',
+    instructionsFile: 'llms.txt',
+  }),
+}
+```
+
+See the [ChatOptions](https://github.com/smashedr/vitepress-chat/blob/master/src/index.ts#L6) for more details...
+
+### Instructions Generator
 
 Then add the instruction generator vite plugin to your config.
 
@@ -103,6 +125,8 @@ export default defineConfig({
   },
 })
 ```
+
+See the [InstructionsOptions](https://github.com/smashedr/vitepress-chat/blob/master/src/instructions-plugin.ts#L8) for more details...
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
 
