@@ -269,7 +269,7 @@ function handleSubmit(e: Event) {
   padding: 10px 18px;
   border-radius: 24px;
   background: var(--vp-c-brand-2);
-  color: #fff;
+  color: var(--vp-button-brand-hover-text);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
