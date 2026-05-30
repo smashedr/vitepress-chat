@@ -90,6 +90,8 @@ export default {
 }
 ```
 
+See the [ChatOptions](https://github.com/smashedr/vitepress-chat/blob/master/src/index.ts#L6) for more details...
+
 ### Instructions Generator
 
 Then add the instruction generator vite plugin to your config.
@@ -120,5 +122,9 @@ export default defineConfig({
   },
 })
 ```
+
+See the [InstructionsOptions](https://github.com/smashedr/vitepress-chat/blob/master/src/instructions-plugin.ts#L8) for more details...
+
+&nbsp;
 
 If you don't have one setup yet, configure your [Server](server.md).
