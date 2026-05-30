@@ -57,12 +57,12 @@
     "prettier:write": "npx prettier --write ."
   },
   "devDependencies": {
-    "@ai-sdk/vue": "^3.0.191",
+    "@ai-sdk/vue": "^3.0.193",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.9.1",
     "@vitejs/plugin-vue": "^6.0.7",
-    "ai": "^6.0.191",
-    "eslint": "^10.4.0",
+    "ai": "^6.0.193",
+    "eslint": "^10.4.1",
     "eslint-plugin-vue": "^10.9.1",
     "globals": "^17.6.0",
     "highlight.js": "^11.11.1",
@@ -70,11 +70,11 @@
     "marked-highlight": "^2.2.4",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.4",
+    "typescript-eslint": "^8.60.0",
     "vite": "^8.0.14",
     "vitepress": "^1.6.4",
-    "vue": "^3.5.34",
-    "vue-tsc": "^3.3.1"
+    "vue": "^3.5.35",
+    "vue-tsc": "^3.3.2"
   },
   "peerDependencies": {
     "@ai-sdk/vue": ">=3.0.0",
