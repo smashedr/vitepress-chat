@@ -8,6 +8,7 @@ import VitePressChat from '../../../src/index.ts'
 export default {
   ...DefaultTheme,
   ...VitePressChat(DefaultTheme, {
+    instructionsFile: 'llms.txt',
     api: import.meta.env.VITE_AI_API,
     // headers: { Authorization: import.meta.env.VITE_AI_AUTH },
     headers: import.meta.env.VITE_AI_AUTH
