@@ -233,8 +233,8 @@ function handleSubmit(e: Event) {
         <button type="submit" class="chat-send" :disabled="chatBusy || !input.trim()" title="Send">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -471,14 +471,14 @@ function handleSubmit(e: Event) {
 .chat-form {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0; /* never let the form compress */
+  flex-shrink: 0;
+  position: relative;
 }
 
 .chat-input {
   flex: 1;
   min-width: 0;
-  padding: 8px;
+  padding: 8px 44px 8px 8px;
   border-radius: 8px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
@@ -489,6 +489,7 @@ function handleSubmit(e: Event) {
   outline: none;
   transition: border-color 0.2s;
   height: 80px;
+  min-height: 50px;
 }
 .chat-input::placeholder {
   color: var(--vp-c-text-3);
@@ -503,7 +504,9 @@ function handleSubmit(e: Event) {
 
 /* ─── Send button ─────────────────────────────────────────── */
 .chat-send {
-  flex-shrink: 0;
+  position: absolute;
+  top: 6px;
+  right: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
