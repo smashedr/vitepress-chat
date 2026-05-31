@@ -34,7 +34,12 @@ To get started [Install](#install) and [Setup](#setup) the plugin.
 
 Or ask AI with the Chat button in the bottom right...
 
-For a full list of features, see the [Server Features](server.md#features).
+### Features
+
+- Includes Instructions Generation Plugin
+- Set Custom File Name and Exclude Globs
+- Works with Existing LLM Generation Plugins
+- Plus all the [Server Features](server.md#features)
 
 ## Install
 
@@ -79,13 +84,13 @@ export default {
 }
 ```
 
-With a custom instructionsFile for use with other generators.
+Set a custom instructions file or use with another generators like [vitepress-plugin-llms](https://github.com/okineadev/vitepress-plugin-llms).
 
 ```typescript
 export default {
   ...VitePressChat(DefaultTheme, {
     api: 'https://ai-chat-server.cssnr.com/',
-    instructionsFile: 'llms.txt',
+    instructionsFile: 'llms-full.txt',
   }),
 }
 ```

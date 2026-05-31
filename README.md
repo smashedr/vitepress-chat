@@ -37,6 +37,13 @@ Built with the [AI SDK](https://ai-sdk.dev/).
 - Client: https://github.com/smashedr/vitepress-chat
 - Server: https://github.com/smashedr/ai-chat-server
 
+### Features
+
+- Includes Instructions Generation Plugin
+- Set Custom File Name and Exclude Globs
+- Works with Existing LLM Generation Plugins
+- Plus all the [Server Features](https://github.com/smashedr/ai-chat-server?tab=readme-ov-file#features)
+
 ## Install
 
 Using your favorite package manager...
@@ -82,13 +89,13 @@ export default {
 }
 ```
 
-With a custom instructionsFile for use with other generators.
+Set a custom instructions file or use with another generators like [vitepress-plugin-llms](https://github.com/okineadev/vitepress-plugin-llms).
 
 ```typescript
 export default {
   ...VitePressChat(DefaultTheme, {
     api: 'https://ai-chat-server.cssnr.com/',
-    instructionsFile: 'llms.txt',
+    instructionsFile: 'llms-full.txt',
   }),
 }
 ```

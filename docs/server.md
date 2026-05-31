@@ -33,6 +33,7 @@ AI Chat Proxy Server using the [AI SDK](https://ai-sdk.dev/).
 - Automatic Input Token Caching
 - Automatic Retry on API Failures
 - Deploy with Docker or Node
+- Plus all the [Client Features](client.md#features)
 
 ## Setup
 
