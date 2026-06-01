@@ -56,7 +56,7 @@ npm install github:smashedr/vitepress-chat
 Install a [tagged release](https://github.com/smashedr/vitepress-chat/releases) or hash.
 
 ```shell
-npm install github:smashedr/vitepress-chat#0.0.7
+npm install github:smashedr/vitepress-chat#0.0.8
 ```
 
 ## Setup
