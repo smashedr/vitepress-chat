@@ -74,19 +74,19 @@ For a Portainer Deploy workflow see the [.github/workflows/deploy.yaml](https://
 
 ### Configure
 
-The only required variables is the `MODEL` and the API Key Variable for that model.
+The only required variables are the `MODEL` and the API Key Variable for that model.
 
 Environment Variables.
 
-| Variable                 | Req. | Default                      | Description                |
-| :----------------------- | :--: | :--------------------------- | :------------------------- |
-| `MODEL`                  | Yes  | -                            | Model to Use               |
-| `MAX_TOKENS`             |  -   | -                            | Max Output Tokens          |
-| `INSTRUCTIONS`           |  -   | -                            | System Instructions        |
-| `AI_SDK_LOG_WARNINGS`    |  -   | -                            | Disable SDK Warnings       |
-| `CORS_ORIGINS`           |  -   | -                            | Allowed CORS Origins       |
-| `OPEN_PROVIDER_BASE_URL` |  -   | `https://opencode.ai/zen/v1` | OpenAI-Compatible Base URL |
-| `PORT`                   |  -   | `3000`                       | Server Port                |
+| Variable                 | Default                      | Description                |
+| :----------------------- | :--------------------------- | :------------------------- |
+| `MODEL`                  | -                            | Model to Use               |
+| `MAX_TOKENS`             | -                            | Max Output Tokens          |
+| `INSTRUCTIONS`           | -                            | System Instructions        |
+| `AI_SDK_LOG_WARNINGS`    | -                            | Disable SDK Warnings       |
+| `CORS_ORIGINS`           | -                            | Allowed CORS Origins       |
+| `OPEN_PROVIDER_BASE_URL` | `https://opencode.ai/zen/v1` | OpenAI-Compatible Base URL |
+| `PORT`                   | `3000`                       | Server Port                |
 
 You must also set the API key for the `MODEL` you select.
 

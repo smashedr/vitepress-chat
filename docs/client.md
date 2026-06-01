@@ -53,10 +53,10 @@ Using your favorite package manager...
 npm install github:smashedr/vitepress-chat
 ```
 
-To update after installing.
+Install a [tagged release](https://github.com/smashedr/vitepress-chat/releases) or hash.
 
 ```shell
-npm update @cssnr/vitepress-chat
+npm install github:smashedr/vitepress-chat#0.0.7
 ```
 
 ## Setup
