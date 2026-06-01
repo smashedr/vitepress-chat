@@ -22,13 +22,13 @@
 <a title="AI Chat Server" href="https://github.com/smashedr/ai-chat-server?tab=readme-ov-file#readme" target="_blank">
 <img alt="AI Chat Server" align="right" width="128" height="auto" src="/images/server.svg"></a>
 
-AI Chat Proxy Server using the [AI SDK](https://ai-sdk.dev/).
+Built with the [AI SDK](https://ai-sdk.dev/).
 
 [[toc]]
 
 ### Features
 
-- Works with Claude, OpenAI and Gemini
+- Works with Claude, OpenAI, Gemini and Open Providers
 - Live Stream Results to Client
 - Automatic Input Token Caching
 - Automatic Retry on API Failures
@@ -42,9 +42,7 @@ AI Chat Proxy Server using the [AI SDK](https://ai-sdk.dev/).
 With Docker.
 
 ```shell
-docker run --rm -p 80:3000 --name ai-chat-server \
-    -e MODEL=gemini-2.5-flash \
-    -e GOOGLE_GENERATIVE_AI_API_KEY=xxx \
+docker run --rm -p 80:3000 -e MODEL=big-pickle \
     ghcr.io/smashedr/ai-chat-server:latest
 ```
 
@@ -55,8 +53,8 @@ services:
   chat:
     image: ghcr.io/smashedr/ai-chat-server:latest
     environment:
-      MODEL: 'gpt-5.4-mini'
-      OPENAI_API_KEY: 'sk-proj-xxx'
+      MODEL: 'gemini-2.5-flash'
+      GOOGLE_GENERATIVE_AI_API_KEY: 'xxx'
     ports:
       - '80:3000'
 ```
@@ -80,22 +78,26 @@ The only required variables is the `MODEL` and the API Key Variable for that mod
 
 Environment Variables.
 
-| Variable              | Req. | Default | Description          |
-| :-------------------- | :--: | :------ | :------------------- |
-| `MODEL`               | Yes  | -       | Model to Use         |
-| `MAX_TOKENS`          |  -   | -       | Max Output Tokens    |
-| `INSTRUCTIONS`        |  -   | -       | System Instructions  |
-| `AI_SDK_LOG_WARNINGS` |  -   | -       | Disable SDK Warnings |
-| `CORS_ORIGINS`        |  -   | -       | Allowed CORS Origins |
-| `PORT`                |  -   | `3000`  | Server Port          |
+| Variable                 | Req. | Default                      | Description                |
+| :----------------------- | :--: | :--------------------------- | :------------------------- |
+| `MODEL`                  | Yes  | -                            | Model to Use               |
+| `MAX_TOKENS`             |  -   | -                            | Max Output Tokens          |
+| `INSTRUCTIONS`           |  -   | -                            | System Instructions        |
+| `AI_SDK_LOG_WARNINGS`    |  -   | -                            | Disable SDK Warnings       |
+| `CORS_ORIGINS`           |  -   | -                            | Allowed CORS Origins       |
+| `OPEN_PROVIDER_BASE_URL` |  -   | `https://opencode.ai/zen/v1` | OpenAI-Compatible Base URL |
+| `PORT`                   |  -   | `3000`                       | Server Port                |
 
 You must also set the API key for the `MODEL` you select.
 
-| Variable                       | Description   |
-| :----------------------------- | :------------ |
-| `ANTHROPIC_API_KEY`            | Claude Models |
-| `GOOGLE_GENERATIVE_AI_API_KEY` | Gemini Models |
-| `OPENAI_API_KEY`               | OpenAI Models |
+| Variable                       | Description          |
+| :----------------------------- | :------------------- |
+| `ANTHROPIC_API_KEY`            | Claude Models        |
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Gemini Models        |
+| `OPENAI_API_KEY`               | OpenAI Models        |
+| `OPEN_PROVIDER_API_KEY`        | Open Provider Models |
+
+The `OPEN_PROVIDER_API_KEY` is optional for free-tier models like `big-pickle`.
 
 ## Client
 

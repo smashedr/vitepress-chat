@@ -30,6 +30,10 @@
 AI Chat trained on your docs with any provider you choose via a secure proxy [ai-chat-server](https://github.com/smashedr/ai-chat-server).
 The server features live-streaming results, automatic input token caching, automatic retry on failures and more.
 
+Works with Claude, OpenAI, Gemini or any [OpenAI Compatible Provider](https://ai-sdk.dev/providers/openai-compatible-providers) such as DeepSeek, Grok, Qwen, Zen, etc.
+
+100% Free to use with Zen OpenCode or Gemini Free Tier!
+
 Built with the [AI SDK](https://ai-sdk.dev/).
 
 [![View Live Demo](https://img.shields.io/badge/view_live_demo-green?style=for-the-badge&logo=chatbot&logoColor=white)](https://smashedr.github.io/vitepress-chat/)
